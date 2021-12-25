@@ -76,6 +76,8 @@ builds.Where(build => Directory.Exists(Path.Join(appdata, build))).ToList().ForE
         {
             safe++;
         }
+    } else {
+        safe++;
     }
 
     if(safe == 2)
