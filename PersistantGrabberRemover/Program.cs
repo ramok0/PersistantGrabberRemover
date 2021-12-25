@@ -11,11 +11,13 @@ string? appdata = Environment.GetEnvironmentVariable("userprofile");
 if (appdata == null)
 {
     Console.WriteLine("Could not find Appdata variable.");
-    Console.Write("Path to your %appdata% : ");
+    Console.Write("Path to your %localappdata% : ");
     appdata = Console.ReadLine();
+} else {
+    appdata = Path.Join(appdata, "AppData", "Local");
 }
 
-appdata = Path.Join(appdata, "AppData", "Local");
+
 
 builds.Where(build => Directory.Exists(Path.Join(appdata, build))).ToList().ForEach(build =>
 {
